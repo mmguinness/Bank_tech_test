@@ -11,6 +11,12 @@ describe Account do
       account.credit(1000)
       expect(account.balance).to eq(1000)
     end
+
+    it 'records the transaction with details of amount credited, date and new balance' do
+      account.credit(1000)
+      expect(account.history[0]).to eq({ :date=>"03/27/2022", :credit=>1000, :debit=>nil, :balance=>1000 })
+    end
+
   end
 
   describe '#debit' do
