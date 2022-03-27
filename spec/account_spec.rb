@@ -22,13 +22,13 @@ describe Account do
   describe '#debit' do
     it 'removes specified amount from the account balance' do
       account.credit(1000)
-      account.dedit(500)
+      account.debit(500)
       expect(account.balance).to eq(500)
     end
 
     it 'records the transaction with details of amount debited, date and new balance' do
       account.credit(1000)
-      account.dedit(500)
+      account.debit(500)
       expect(account.history[1]).to eq({ :date=>"03/27/2022", :debit=>500, :balance=>500 })
     end
   end
