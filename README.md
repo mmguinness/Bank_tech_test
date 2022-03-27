@@ -1,7 +1,11 @@
 # Bank_tech_test
 
 ## To run
-* To install code and run locally `git clone https://github.com/mmguinness/Bank_tech_test.git`
+* To install code and run locally:
+ `git clone https://github.com/mmguinness/Bank_tech_test.git`
+* Run `bundle install`
+* Run `rpsec` to test
+* Run `irb` to interact with code
 
 ## Specification
 

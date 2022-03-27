@@ -6,8 +6,8 @@ class Bank
     @accounts = []
   end
 
-  def create_account(_account_name)
-    @accounts << (account_name = Account.new)
+  def create_account(account_name)
+    @accounts << account_name = Account.new
   end
 
 end

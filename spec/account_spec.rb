@@ -12,9 +12,14 @@ describe Account do
       expect(account.balance).to eq(1000)
     end
 
-    it 'records the transaction with details of amount credited, date and new balance' do
+    it 'records the transaction with details of amount credited, todays date and new balance' do
       account.credit(1000)
-      expect(account.history[0]).to eq({ :date=>"03/27/2022", :credit=>1000, :balance=>1000 })
+      expect(account.history[0]).to eq({ :date=>"27/03/2022", :credit=>1000, :balance=>1000 })
+    end
+
+    it 'records the transaction with date provided, if required' do
+      account.credit(1000, "30/03/2022")
+      expect(account.history[0]).to eq({ :date=>"30/03/2022", :credit=>1000, :balance=>1000 })
     end
 
   end
@@ -29,7 +34,7 @@ describe Account do
     it 'records the transaction with details of amount debited, date and new balance' do
       account.credit(1000)
       account.debit(500)
-      expect(account.history[1]).to eq({ :date=>"03/27/2022", :debit=>500, :balance=>500 })
+      expect(account.history[1]).to eq({ :date=>"27/03/2022", :debit=>500, :balance=>500 })
     end
   end
 
