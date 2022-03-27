@@ -13,4 +13,12 @@ describe Account do
     end
   end
 
+  describe '#debit' do
+    it 'removes specified amount from the account balance' do
+      account.credit(1000)
+      account.dedit(500)
+      expect(account.balance).to eq(500)
+    end
+  end
+
 end

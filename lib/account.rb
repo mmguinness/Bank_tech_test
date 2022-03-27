@@ -10,4 +10,8 @@ class Account
     @balance += amount
   end
 
+  def dedit(amount)
+    @balance -= amount
+  end
+
 end
