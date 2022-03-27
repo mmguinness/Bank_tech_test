@@ -6,4 +6,8 @@ class Account
     @balance = START_BALANCE
   end
   
+  def credit(amount)
+    @balance += amount
+  end
+
 end
