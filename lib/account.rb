@@ -22,7 +22,13 @@ class Account
   private  
 
   def interaction(action, amount, date)
-    action == 'credit' ? (@transaction[:credit] = amount) : (@transaction[:debit] = amount)
+    if action == 'credit' 
+      @transaction[:credit] = amount
+      @transaction[:debit] = 0
+    elsif action == 'debit'
+      @transaction[:debit] = amount
+      @transaction[:credit] = 0
+    end
     @transaction[:date] = date
     @transaction[:balance] = @balance
     save_to_history

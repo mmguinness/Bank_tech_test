@@ -1,24 +1,30 @@
 class Statement
 
   def inititalize 
-    @text = nil
+    @text = []
   end
 
   def print_statement(account)
     format_statement(account)
-    @text.gsub!(/\P{ASCII}/, '')
-    puts @text
-    return @text
+    @text.reverse!
+    @text.unshift("date || credit || debit || balance")
+    @text.each { |text| puts text }
   end
 
-private
-
   def format_statement(account)
-    date = account.history[0][:date]
-    credit = account.history[0][:credit].round(2)
-    balance = account.history[0][:balance]
-    @text = "date || credit || balance
-#{date} || #{sprintf("%.2f", credit)} || #{sprintf("%.2f", balance)}"
+    array = []
+    account.history.each do |format|
+      date = format[:date]
+      credit = format[:credit]
+      debit = format[:debit]
+      balance = format[:balance]
+      if credit != 0
+        array.push("#{date} || #{sprintf("%.2f", credit)} || || #{sprintf("%.2f", balance)}")
+      elsif debit != 0
+        array.push("#{date} || || #{sprintf("%.2f", debit)} || #{sprintf("%.2f", balance)}")
+      end
+    end
+    @text = array
   end
 
 end
