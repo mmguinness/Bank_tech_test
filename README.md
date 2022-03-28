@@ -1,12 +1,14 @@
 # Bank_tech_test
 
 ## Description
-* First submission for Bank tech test, a simple bank app that can be run in IRB in your terminal.
+First submission for Bank tech test, a simple bank app that can be run in IRB in your terminal.
 
 * Acceptance criteria demonstrated in IRB with automatic date generation : 
+
 ![Diagram](images/IRB_example_01.png)
 
 * Acceptance criteria demonstrated in IRB with dates provided to match example : 
+
 ![Diagram](images/IRB_example_02.png)
 
 
@@ -15,7 +17,7 @@
  `git clone https://github.com/mmguinness/Bank_tech_test.git`
 * Run `bundle install`
 * Run `rpsec` to test
-* Run `irb` to interact with code and require:
+* Run `irb` to interact with code and require Ruby files:
 ```
 require './lib/bank'
 require './lib/account'
