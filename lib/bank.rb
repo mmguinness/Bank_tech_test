@@ -1,3 +1,5 @@
+require_relative 'account'
+
 class Bank
 
   attr_reader :accounts
@@ -6,8 +8,16 @@ class Bank
     @accounts = []
   end
 
-  def create_account(account_name)
-    @accounts << account_name = Account.new
+  def store_account(account)
+    @accounts << account
+  end
+
+  def credit_account(account, amount)
+    account.credit(amount)
+  end
+
+  def debit_account(account, amount)
+    account.debit(amount)
   end
 
 end

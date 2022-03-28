@@ -41,3 +41,12 @@ date || credit || debit || balance
 
 * Outline domain model:
 ![Diagram](images/Domain_model_01.png)
+
+* I have added the option of providing the date with the transaction. This was so that I could replicate the example given in the acceptance criteria (which has transactions on different days). On reflection, a bank would not allow you to do this, so I might take this out at a later stage. 
+
+* Thinking about the depency injection, I have refactored my code so the Account instance is now passed into the Bank instance, rather than being created inside the class. I think this is clearer to understand and does not impact the funcitonality of my code.
+
+* Updated domain model: 
+![Diagram](images/Domain_model_03.png)
+
+* The Account class is doing a lot of things. Next I will inveestigate how I could pull out the transcations(credit and debit funcitonality) as a separate class.
