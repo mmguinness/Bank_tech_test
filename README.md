@@ -1,11 +1,26 @@
 # Bank_tech_test
 
+## Description
+* First submission for Bank tech test, a simple bank app that can be run in IRB in your terminal.
+
+* Acceptance criteria demonstrated in IRB with automatic date generation : 
+![Diagram](images/IRB_example_01.png)
+
+* Acceptance criteria demonstrated in IRB with dates provided to match example : 
+![Diagram](images/IRB_example_02.png)
+
+
 ## To run
 * To install code and run locally:
  `git clone https://github.com/mmguinness/Bank_tech_test.git`
 * Run `bundle install`
 * Run `rpsec` to test
-* Run `irb` to interact with code
+* Run `irb` to interact with code and require:
+```
+require './lib/bank'
+require './lib/account'
+require './lib/statement'
+```
 
 ## Specification
 
@@ -30,6 +45,7 @@ date || credit || debit || balance
 13/01/2023 || 2000.00 || || 3000.00
 10/01/2023 || 1000.00 || || 1000.00
 ```
+
 ## Process
 
 * Aim to use a TDD approach to completing the project:
@@ -50,3 +66,7 @@ date || credit || debit || balance
 ![Diagram](images/Domain_model_03.png)
 
 * The Account class is doing a lot of things. I may need to pull out the transcations(credit and debit funcitonality) as a separate class. First, I will finish the challenge requirements, by focusing on the printed statement, and then I will look at refactoring classes.
+
+* Domain model: 
+![Diagram](images/Domain_model_04.png)
+
