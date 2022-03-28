@@ -11,6 +11,8 @@ class Statement
     @text.each { |text| puts text }
   end
 
+  private
+
   def format_statement(account)
     array = []
     account.history.each do |format|

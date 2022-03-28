@@ -12,11 +12,11 @@ class Bank
     @accounts << account
   end
 
-  def credit_account(account, amount)
+  def deposit(account, amount)
     account.credit(amount)
   end
 
-  def debit_account(account, amount)
+  def withdraw(account, amount)
     account.debit(amount)
   end
 

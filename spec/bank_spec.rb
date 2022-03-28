@@ -10,36 +10,39 @@ describe Bank do
   
   describe '#store_account' do    
     it 'can store a new bank account' do
-      first_account = Account.new
-      bank.store_account(first_account)
+      account = Account.new
+      bank.store_account(account)
       expect(bank.accounts).to include(an_instance_of(Account))
     end
 
-    let(:account) { double :account }
     it 'can store multiple bank accounts' do
-      bank.store_account(account)
-      bank.store_account(account)
-      bank.store_account(account)
+      account_double = double(:account)
+      bank.store_account(account_double)
+      bank.store_account(account_double)
+      bank.store_account(account_double)
       expect(bank.accounts.length).to eq(3)
     end
   end
-
-  describe '#credit_account' do
+  
+  describe '#deposit' do
     it 'can add a specified amount to a given account' do
-      first_account = Account.new
-      bank.store_account(first_account)
-      bank.credit_account(first_account, 1000)
-      expect(first_account.balance).to eq(1000)
+      account_double = double(:account)
+      allow(account_double).to receive(:credit)
+      bank.store_account(account_double)
+      bank.deposit(account_double, 1000)
+      expect(bank).to respond_to(:deposit).with(2).argument
     end
   end
 
-  describe '#debit_account' do
+  describe '#withdrawl' do
     it 'can take a specified amount from a given account' do
-      first_account = Account.new
-      bank.store_account(first_account)
-      bank.credit_account(first_account, 1000)
-      bank.debit_account(first_account, 500)
-      expect(first_account.balance).to eq(500)
+      account_double = double(:account)
+      allow(account_double).to receive(:credit)
+      allow(account_double).to receive(:debit)
+      bank.store_account(account_double)
+      bank.deposit(account_double, 1000)
+      bank.withdraw(account_double, 500)
+      expect(bank).to respond_to(:withdraw).with(2).argument
     end
   end
 
