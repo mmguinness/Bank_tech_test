@@ -49,4 +49,4 @@ date || credit || debit || balance
 * Updated domain model: 
 ![Diagram](images/Domain_model_03.png)
 
-* The Account class is doing a lot of things. Next I will inveestigate how I could pull out the transcations(credit and debit funcitonality) as a separate class.
+* The Account class is doing a lot of things. I may need to pull out the transcations(credit and debit funcitonality) as a separate class. First, I will finish the challenge requirements, by focusing on the printed statement, and then I will look at refactoring classes.

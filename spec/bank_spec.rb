@@ -34,13 +34,13 @@ describe Bank do
   end
 
   describe '#debit_account' do
-  it 'can take a specified amount from a given account' do
-    first_account = Account.new
-    bank.store_account(first_account)
-    bank.credit_account(first_account, 1000)
-    bank.debit_account(first_account, 500)
-    expect(first_account.balance).to eq(500)
+    it 'can take a specified amount from a given account' do
+      first_account = Account.new
+      bank.store_account(first_account)
+      bank.credit_account(first_account, 1000)
+      bank.debit_account(first_account, 500)
+      expect(first_account.balance).to eq(500)
+    end
   end
-end
 
 end
