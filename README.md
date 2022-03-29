@@ -1,15 +1,11 @@
 # Bank_tech_test
 
 ## Description
-First submission for Bank tech test, a simple bank app that can be run in IRB in your terminal.
+Second submission for Bank tech test. A simple program to emulate a bank account. This project is for demonstrating basic TDD and OOP principles, for tech test practise. The project is in Ruby and can be run locally in irb.
 
 * Acceptance criteria demonstrated in IRB with automatic date generation : 
 
 ![Diagram](images/IRB_example_01.png)
-
-* Acceptance criteria demonstrated in IRB with dates provided to match example : 
-
-![Diagram](images/IRB_example_02.png)
 
 
 ## To run
@@ -51,24 +47,11 @@ date || credit || debit || balance
 ## Process
 
 * Aim to use a TDD approach to completing the project:
-   - Plan
-   - Test
-   - Implement
-   - Refactor
-   - Commit
+   - Plan, Test, Implement, Refactor, Commit
 
 * Outline domain model:
 ![Diagram](images/Domain_model_01.png)
 
-* I have added the option of providing the date with the transaction. This was so that I could replicate the example given in the acceptance criteria (which has transactions on different days). On reflection, a bank would not allow you to do this, so I might take this out at a later stage. 
-
-* Thinking about the depency injection, I have refactored my code so the Account instance is now passed into the Bank instance, rather than being created inside the class. I think this is clearer to understand and does not impact the funcitonality of my code.
-
-* Updated domain model: 
-![Diagram](images/Domain_model_03.png)
-
-* The Account class is doing a lot of things. I may need to pull out the transcations(credit and debit funcitonality) as a separate class. First, I will finish the challenge requirements, by focusing on the printed statement, and then I will look at refactoring classes.
-
-* Domain model: 
-![Diagram](images/Domain_model_04.png)
+* Following review, redesign of domain model: 
+![Diagram](images/Domain_model_05.png)
 

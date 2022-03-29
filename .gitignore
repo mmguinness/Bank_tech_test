@@ -1,2 +1,5 @@
 .DS_Store
 **coverage/
+Feedback_01.md
+coverage/.last_run.json
+coverage/.resultset.json
