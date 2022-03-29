@@ -1,4 +1,4 @@
-class Account
+class Transaction
   attr_reader :balance, :history
   START_BALANCE = 0
 
