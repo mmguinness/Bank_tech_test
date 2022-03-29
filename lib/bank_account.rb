@@ -1,7 +1,7 @@
 require_relative 'account'
 require_relative 'statement'
 
-class Bank
+class BankAccount
 
   attr_reader :accounts
 
