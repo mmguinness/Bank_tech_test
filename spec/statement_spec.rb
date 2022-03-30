@@ -16,6 +16,16 @@ describe Statement do
 "
       expect { statement.print_statement }.to output(output).to_stdout
     end
+
+    it 'outputs the date, debit and balance of withdrawal transaction into a bank account' do
+      transactions = [Transaction.new(1000, nil, 500)]
+      statement = Statement.new(transactions)
+      output = 
+"date || credit || debit || balance
+30/03/2022 ||  || 500.00 || 1000.00
+"
+      expect { statement.print_statement }.to output(output).to_stdout
+    end
   end
 
 #   it 'returns the transactions of a given account, in reverse order,' do
@@ -35,3 +45,4 @@ describe Statement do
 #   end
 
 end
+

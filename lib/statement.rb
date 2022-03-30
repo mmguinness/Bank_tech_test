@@ -8,14 +8,20 @@ class Statement
 
   def print_statement
     header
-    format_body
-    @statement_body.each do |transaction|
-      puts transaction
-    end
+    body
   end
 
+private 
+  
   def header
     puts "date || credit || debit || balance"
+  end
+
+  def body
+    format_body
+    @statement_body.each do |print_transaction|
+      puts print_transaction
+    end
   end
 
   def format_body
