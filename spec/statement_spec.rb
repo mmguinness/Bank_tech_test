@@ -1,6 +1,5 @@
 require_relative '../lib/statement'
 require_relative '../lib/transaction'
-require_relative '../lib/bank_account'
 
 describe Statement do
   subject(:statement) { described_class.new }
@@ -9,7 +8,7 @@ describe Statement do
 
     it 'outputs the date, credit and balance of deposit transaction into a bank account' do
       transaction = Transaction.new
-      transaction.save_info(1000, 500, nil)
+      transaction.save_transaction(1000, 500, nil)
       transactions = [transaction]
       statement = Statement.new
       statement.add_transactions(transactions)
@@ -22,7 +21,7 @@ describe Statement do
 
     it 'outputs the date, debit and balance of withdrawal transaction into a bank account' do
       transaction = Transaction.new
-      transaction.save_info(1000, nil, 500)
+      transaction.save_transaction(1000, nil, 500)
       transactions = [transaction]
       statement = Statement.new
       statement.add_transactions(transactions)
@@ -35,12 +34,12 @@ describe Statement do
 
     it 'returns all transactions of bank account, in reverse order,' do
       transaction_01 = Transaction.new
-      transaction_01.save_info(1000, 1000, nil)
+      transaction_01.save_transaction(1000, 1000, nil)
       transaction_02 = Transaction.new
-      transaction_02.save_info(3000, 2000, nil)
+      transaction_02.save_transaction(3000, 2000, nil)
       transaction_03 = Transaction.new
-      transaction_03.save_info(2500, nil, 500)
-      
+      transaction_03.save_transaction(2500, nil, 500)
+
       transactions = [transaction_01, transaction_02, transaction_03]
       statement = Statement.new
       statement.add_transactions(transactions)

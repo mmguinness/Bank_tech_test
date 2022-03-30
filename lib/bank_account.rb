@@ -12,13 +12,13 @@ class BankAccount
 
   def deposit(amount, transaction = Transaction.new)
     @balance += amount
-    transaction.save_info(@balance, amount, nil)
+    transaction.save_transaction(@balance, amount, nil)
     @transactions << transaction
   end
 
   def withdraw(amount, transaction = Transaction.new)
     @balance -= amount
-    transaction.save_info(@balance, nil, amount)
+    transaction.save_transaction(@balance, nil, amount)
     @transactions << transaction
   end
 
@@ -26,5 +26,5 @@ class BankAccount
     statement.add_transactions(@transactions)
     statement.print_statement
   end
-  
+
 end
