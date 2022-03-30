@@ -13,18 +13,17 @@ class BankAccount
 
   def deposit(amount)
     @balance += amount
-    @transactions << Transaction.new(amount, @balance, 'credit')
+    @transactions << Transaction.new(@balance, amount, nil)
   end
 
   def withdraw(amount)
     @balance -= amount
-    @transactions << Transaction.new(amount, @balance, 'debit')
+    @transactions << Transaction.new(@balance, nil, amount)
     p @transactions
   end
 
   def print_statement
     statement = Statement.new(@transactions)
-    
+    p statement.header
   end
-
 end

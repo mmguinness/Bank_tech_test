@@ -1,35 +1,31 @@
 class Statement
+  attr_accessor :transactions
 
-  def inititalize 
-    @text = []
+  def initialize(transactions) 
+    @transactions = transactions
+    @statement_body = []
   end
 
-  def print_statement(account)
-    format_statement(account)
-    @text.each { |text| puts text }
-  end
-
-  private
-
-  def format_statement(account)
-    @text = []
-    format_fields(account)
-    @text.reverse!
-    @text.unshift("date || credit || debit || balance")
-  end
-
-  def format_fields(account)
-    account.history.each do |format|
-      date = format[:date]
-      credit = format[:credit]
-      debit = format[:debit]
-      balance = format[:balance]
-      if credit != 0
-        @text.push("#{date} || #{sprintf("%.2f", credit)} || || #{sprintf("%.2f", balance)}")
-      elsif debit != 0
-        @text.push("#{date} || || #{sprintf("%.2f", debit)} || #{sprintf("%.2f", balance)}")
-      end
+  def print_statement
+    header
+    format_body
+    @statement_body.each do |transaction|
+      puts transaction
     end
   end
-  
+
+  def header
+    puts "date || credit || debit || balance"
+  end
+
+  def format_body
+    @transactions.each do |transaction|
+      date = "30/03/2022"
+      balance = sprintf("%.2f", transaction.balance)
+      if transaction.credit != nil then credit = sprintf("%.2f", transaction.credit) end
+      if transaction.debit != nil then debit = sprintf("%.2f", transaction.debit) end
+      @statement_body.unshift("#{date} || #{credit} || #{debit} || #{balance}")
+    end
+  end
+
 end
