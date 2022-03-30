@@ -37,21 +37,17 @@ describe BankAccount do
     end
   end
 
-#   describe '#print_statement' do
-#     it 'prints a list of all transactions that have happened within the bank account' do
-#       bank_account.deposit(1000)
-#       bank_account.withdraw(100)
-#       # Print 
-#       output = 
-# "date || credit || debit || balance
-# 30/03/2020 || || 100.00 || 900.00
-# 30/03/2020 || 1000.00 || || 1000.00
-# "
-#       expect { bank_account.print_statement }.to output(output).to_stdout
-#     end
-#   end
+  describe '#statement' do
+    it 'prints a list of all transactions that have happened within the bank account' do
+      bank_account.deposit(1000)
+      bank_account.withdraw(100)
+      output = 
+"date || credit || debit || balance
+30/03/2020 ||  || 100.00 || 900.00
+30/03/2020 || 1000.00 ||  || 1000.00
+"
+      expect { bank_account.statement }.to output(output).to_stdout
+    end
+  end
 
 end
-
-# time_stub = Time.new(2020, 1, 0o1, 0o1)
-# allow(Time).to receive(:now).and_return(time_stub)

@@ -2,7 +2,6 @@ require_relative 'transaction'
 require_relative 'statement'
 
 class BankAccount
-
   attr_reader :transactions, :balance
   START_BALANCE = 0
 
@@ -19,11 +18,10 @@ class BankAccount
   def withdraw(amount)
     @balance -= amount
     @transactions << Transaction.new(@balance, nil, amount)
-    p @transactions
   end
 
-  def print_statement
+  def statement
     statement = Statement.new(@transactions)
-    p statement.header
+    statement.print_statement
   end
 end

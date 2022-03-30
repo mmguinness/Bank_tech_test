@@ -26,23 +26,21 @@ describe Statement do
 "
       expect { statement.print_statement }.to output(output).to_stdout
     end
+
+    it 'returns all transactions of bank account, in reverse order,' do
+      transactions = [
+        Transaction.new(1000, 1000, nil), 
+        Transaction.new(3000, 2000, nil), 
+        Transaction.new(2500, nil, 500)
+      ]
+      statement = Statement.new(transactions)
+      output = 
+"date || credit || debit || balance
+30/03/2022 ||  || 500.00 || 2500.00
+30/03/2022 || 2000.00 ||  || 3000.00
+30/03/2022 || 1000.00 ||  || 1000.00
+"
+      expect { statement.print_statement }.to output(output).to_stdout
+    end
   end
-
-#   it 'returns the transactions of a given account, in reverse order,' do
-#     # Account setup
-#     transaction = Transaction.new
-#     transaction.credit(1000, '10/01/2023')
-#     transaction.credit(2000, '13/01/2023')
-#     transaction.debit(500, '14/01/2023')
-#     # Produce statement
-#     output = 
-# "date || credit || debit || balance
-# 14/01/2023 || || 500.00 || 2500.00
-# 13/01/2023 || 2000.00 || || 3000.00
-# 10/01/2023 || 1000.00 || || 1000.00
-# "
-#     expect { statement.print_statement(transaction) }.to output(output).to_stdout
-#   end
-
 end
-
