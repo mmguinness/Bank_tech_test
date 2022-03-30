@@ -22,8 +22,9 @@ class BankAccount
     p @transactions
   end
 
-  def create_statement(transaction)
-    Statement.new.print_statement(transaction)
+  def print_statement
+    statement = Statement.new(@transactions)
+    
   end
 
 end

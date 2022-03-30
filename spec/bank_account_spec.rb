@@ -37,23 +37,22 @@ describe BankAccount do
     end
   end
 
-#   describe '#create_statement' do
-#     it 'can create a new statement for a given account' do
-#       # Account setup
-#       time_stub = Time.new(2020, 1, 0o1, 0o1)
-#       allow(Time).to receive(:now).and_return(time_stub)
-#       transaction = Transaction.new
-#       bank_account.store_account(transaction)
-#       bank_account.deposit(transaction, 1000)
-#       bank_account.withdraw(transaction, 100)
-#       # Print 
-#       output = 
-# "date || credit || debit || balance
-# 01/01/2020 || || 100.00 || 900.00
-# 01/01/2020 || 1000.00 || || 1000.00
-# "
-#       expect { bank_account.create_statement(transaction) }.to output(output).to_stdout
-#     end
-#   end
+  describe '#print_statement' do
+    it 'prints a list of all transactions that have happened within bank account' do
+      # Account setup
+      bank_account.deposit(transaction, 1000)
+      bank_account.withdraw(transaction, 100)
+      # Print 
+      output = 
+"date || credit || debit || balance
+01/01/2020 || || 100.00 || 900.00
+01/01/2020 || 1000.00 || || 1000.00
+"
+      expect { bank_account.print_statement(transaction) }.to output(output).to_stdout
+    end
+  end
 
 end
+
+# time_stub = Time.new(2020, 1, 0o1, 0o1)
+# allow(Time).to receive(:now).and_return(time_stub)

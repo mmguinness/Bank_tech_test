@@ -3,9 +3,9 @@
 ## Description
 Second submission for Bank tech test. A simple program to emulate a bank account. This project is for demonstrating basic TDD and OOP principles, for tech test practise. The project is in Ruby and can be run locally in irb.
 
-* Acceptance criteria demonstrated in IRB with automatic date generation : 
+* Acceptance criteria demonstrated in IRB: 
 
-![Diagram](images/IRB_example_01.png)
+![Diagram](images/IRB_example_03.png)
 
 
 ## To run
@@ -15,8 +15,8 @@ Second submission for Bank tech test. A simple program to emulate a bank account
 * Run `rpsec` to test
 * Run `irb` to interact with code and require Ruby files:
 ```
-require './lib/bank'
-require './lib/account'
+require './lib/bank_account'
+require './lib/transaction'
 require './lib/statement'
 ```
 
