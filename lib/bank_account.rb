@@ -16,8 +16,10 @@ class BankAccount
     @transactions << Transaction.new(amount, @balance, 'credit')
   end
 
-  def withdraw(transaction, amount, date = Time.now.strftime('%d/%m/%Y'))
-    transaction.debit(amount, date)
+  def withdraw(amount)
+    @balance -= amount
+    @transactions << Transaction.new(amount, @balance, 'debit')
+    p @transactions
   end
 
   def create_statement(transaction)

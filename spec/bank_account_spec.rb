@@ -24,17 +24,18 @@ describe BankAccount do
     end
   end
 
-#   describe '#withdraw' do
-#     it 'can take a specified amount from a given account' do
-#       transaction_double = double(:transaction)
-#       allow(transaction_double).to receive(:credit)
-#       allow(transaction_double).to receive(:debit)
-#       bank_account.store_account(transaction_double)
-#       bank_account.deposit(transaction_double, 1000)
-#       bank_account.withdraw(transaction_double, 500)
-#       expect(bank_account).to respond_to(:withdraw).with(2).argument
-#     end
-#   end
+  describe '#withdraw' do
+    it 'can remove a specified amount from bank account' do
+      bank_account.deposit(1000)
+      bank_account.withdraw(500)
+      expect(bank_account.balance).to eq(500)
+    end
+
+    it 'logs a transaction for the bank account' do
+      bank_account.withdraw(500)
+      expect(bank_account.transactions).to include(an_instance_of(Transaction))
+    end
+  end
 
 #   describe '#create_statement' do
 #     it 'can create a new statement for a given account' do
