@@ -53,5 +53,5 @@ date || credit || debit || balance
 ![Diagram](images/Domain_model_01.png)
 
 * Following review, redesign of domain model: 
-![Diagram](images/Domain_model_05.png)
+![Diagram](images/Domain_model_06.png)
 

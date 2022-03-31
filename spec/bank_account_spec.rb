@@ -9,13 +9,13 @@ describe BankAccount do
   end
 
   it 'has zero balance when created' do
-    expect(bank_account.balance).to eq(0)
+    expect(bank_account.current_balance).to eq(0)
   end
   
   describe '#deposit' do
     it 'can add a specified amount to bank account' do
       bank_account.deposit(1000)
-      expect(bank_account.balance).to eq(1000)
+      expect(bank_account.current_balance).to eq(1000)
     end
       
     it 'logs a transaction for the bank account' do
@@ -28,7 +28,7 @@ describe BankAccount do
     it 'can remove a specified amount from bank account' do
       bank_account.deposit(1000)
       bank_account.withdraw(500)
-      expect(bank_account.balance).to eq(500)
+      expect(bank_account.current_balance).to eq(500)
     end
 
     it 'logs a transaction for the bank account' do
@@ -41,12 +41,8 @@ describe BankAccount do
     it 'prints a list of all transactions that have happened within the bank account' do
       bank_account.deposit(1000)
       bank_account.withdraw(100)
-      output = 
-"date || credit || debit || balance
-30/03/2020 ||  || 100.00 || 900.00
-30/03/2020 || 1000.00 ||  || 1000.00
-"
-      expect { bank_account.statement }.to output(output).to_stdout
+      output = "date || credit || debit || balance\n31/03/2022 ||  || 100.00 || 900.00\n31/03/2022 || 1000.00 ||  || 1000.00\n"
+      expect { bank_account.create_statement }.to output(output).to_stdout
     end
   end
 

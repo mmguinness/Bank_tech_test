@@ -15,8 +15,8 @@ class Statement
 
   def print_statement
     puts 'date || credit || debit || balance'
-    @transactions.each do |print_transaction|
-      puts print_transaction
+    @transactions.each do |transaction_data|
+      puts transaction_data
     end
   end
 
