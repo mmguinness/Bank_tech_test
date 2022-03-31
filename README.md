@@ -5,20 +5,31 @@ Second submission for Bank tech test. A simple program to emulate a bank account
 
 * Acceptance criteria demonstrated in IRB: 
 
-![Diagram](images/IRB_example_03.png)
+![Diagram](images/IRB_example_04.png)
 
+* To feature test in IRB and replicate:
+```
+require './lib/bank_account'
+require './lib/transaction'
+require './lib/statement'
+account = BankAccount.new
+account.deposit(1000)
+account.deposit(2000)
+account.withdraw(500)
+account.create_statement
+
+date || credit || debit || balance
+31/03/2022 ||  || 500.00 || 2500.00
+31/03/2022 || 2000.00 ||  || 3000.00
+31/03/2022 || 1000.00 ||  || 1000.00
+```
 
 ## To run
 * To install code and run locally:
  `git clone https://github.com/mmguinness/Bank_tech_test.git`
 * Run `bundle install`
 * Run `rpsec` to test
-* Run `irb` to interact with code and require Ruby files:
-```
-require './lib/bank_account'
-require './lib/transaction'
-require './lib/statement'
-```
+* Run `irb` to interact with code.
 
 ## Specification
 
