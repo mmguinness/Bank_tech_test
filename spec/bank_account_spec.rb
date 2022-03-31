@@ -21,28 +21,30 @@ describe BankAccount do
     it 'logs a transaction for the bank account' do
       bank_account.deposit(1000)
       expect(bank_account.transactions).to include(an_instance_of(Transaction))
+      expect(bank_account.transactions.length).to be(1)
     end
   end
 
   describe '#withdraw' do
     it 'can remove a specified amount from bank account' do
-      bank_account.deposit(1000)
       bank_account.withdraw(500)
-      expect(bank_account.current_balance).to eq(500)
+      expect(bank_account.current_balance).to eq(-500)
     end
 
     it 'logs a transaction for the bank account' do
       bank_account.withdraw(500)
       expect(bank_account.transactions).to include(an_instance_of(Transaction))
+      expect(bank_account.transactions.length).to be(1)
     end
   end
 
-  describe '#statement' do
-    it 'prints a list of all transactions that have happened within the bank account' do
-      bank_account.deposit(1000)
-      bank_account.withdraw(100)
-      output = "date || credit || debit || balance\n31/03/2022 ||  || 100.00 || 900.00\n31/03/2022 || 1000.00 ||  || 1000.00\n"
-      expect { bank_account.create_statement }.to output(output).to_stdout
+  describe '#create_statement' do
+    it 'passes all transactions that have happened within the bank account to a new statement' do
+      statement = double(statement)
+      allow(statement).to receive(:add_transactions)
+      allow(statement).to receive(:print_statement)
+      expect(bank_account).to receive(:create_statement)
+      bank_account.create_statement(statement)
     end
   end
 

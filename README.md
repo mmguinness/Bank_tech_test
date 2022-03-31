@@ -7,7 +7,14 @@ Second submission for Bank tech test. A simple program to emulate a bank account
 
 ![Diagram](images/IRB_example_04.png)
 
-* To feature test in IRB and replicate:
+
+## To run
+* To install code and run locally:
+ `git clone https://github.com/mmguinness/Bank_tech_test.git`
+* Run `bundle install`
+* Run `rpsec` to test
+* Run `irb` to interact with code.
+* To feature test in IRB and replicate results:
 ```
 require './lib/bank_account'
 require './lib/transaction'
@@ -23,13 +30,6 @@ date || credit || debit || balance
 31/03/2022 || 2000.00 ||  || 3000.00
 31/03/2022 || 1000.00 ||  || 1000.00
 ```
-
-## To run
-* To install code and run locally:
- `git clone https://github.com/mmguinness/Bank_tech_test.git`
-* Run `bundle install`
-* Run `rpsec` to test
-* Run `irb` to interact with code.
 
 ## Specification
 
@@ -57,12 +57,8 @@ date || credit || debit || balance
 
 ## Process
 
-* Aim to use a TDD approach to completing the project:
+* Use a TDD approach to completing the project:
    - Plan, Test, Implement, Refactor, Commit
-
-* Outline domain model:
-![Diagram](images/Domain_model_01.png)
 
 * Following review, redesign of domain model: 
 ![Diagram](images/Domain_model_06.png)
-
