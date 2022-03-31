@@ -1,7 +1,7 @@
 # Bank_tech_test
 
 ## Description
-Second submission for Bank tech test. A simple program to emulate a bank account. This project is for demonstrating basic TDD and OOP principles, for tech test practise. The project is in Ruby and can be run locally in irb.
+A simple program to emulate a bank account. This is a practice project for demonstrating basic TDD and OOP principles. The project is in Ruby and can be run locally in irb.
 
 * Acceptance criteria demonstrated in IRB: 
 
@@ -60,5 +60,6 @@ date || credit || debit || balance
 * Use a TDD approach to completing the project:
    - Plan, Test, Implement, Refactor, Commit
 
-* Following review, redesign of domain model: 
+* Domain model: 
+
 ![Diagram](images/Domain_model_06.png)

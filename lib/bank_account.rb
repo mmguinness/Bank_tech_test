@@ -3,6 +3,7 @@ require_relative 'statement'
 
 class BankAccount
   attr_reader :transactions, :current_balance
+
   START_BALANCE = 0
 
   def initialize
@@ -26,5 +27,4 @@ class BankAccount
     statement.add_transactions(@transactions)
     statement.print_statement
   end
-
 end

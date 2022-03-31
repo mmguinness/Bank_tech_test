@@ -6,10 +6,8 @@ class Statement
   end
 
   def add_transactions(transactions)
-    transactions.each do |transaction|
-    @transactions.unshift(
-      "#{transaction.date} || #{transaction.credit} || #{transaction.debit} || #{transaction.balance}"
-      )
+    transactions.each do |input|
+      @transactions.unshift("#{input.date} || #{input.credit} || #{input.debit} || #{input.balance}")
     end
   end
 
@@ -19,5 +17,4 @@ class Statement
       puts transaction_data
     end
   end
-
 end
